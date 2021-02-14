@@ -1,7 +1,6 @@
 {
   "name": "webjs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,14 @@
   "dependencies": {
     "express": "^4.16.4",
     "hbs": "^4.1.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/snippetcode/webjs.git"
+  },
+  "description": ""
 }

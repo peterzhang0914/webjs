@@ -1,5 +1,6 @@
 const express = require('express')
 const conf = require('../conf/conf')
+const hbs = require('hbs')
 const app = express()
 
 // 1. 模板引擎设置
@@ -7,6 +8,9 @@ const app = express()
 // Error: Failed to lookup view "help" in views directory "/Users/zhangfan/WebstormProjects/webjs/views"
 app.set('view engine', 'hbs')
 app.set('views', conf.views_path)
+//公共组件注册通过hbs.registerPartials注册
+hbs.registerPartials(conf.widgets_path)
+
 // 2. 映射url到静态文件夹
 //映射 route 到 public 文件夹
 // app.use('/public', express.static(conf.public_path))
@@ -16,7 +20,8 @@ app.use(express.static(conf.public_path))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Index Page',
-        admin: 'peter.zhang@znet.online'
+        admin: 'peter.zhang@znet.online',
+        name: 'Page name is Index'
     })
 })
 
@@ -25,6 +30,12 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help me page',
         tip: 'You can contact site admin at peter.zhang@znet.online for any issue.'
+    })
+})
+
+app.get('/about', (req, res) => {
+    res.render('about',{
+        title:'About me title'
     })
 })
 

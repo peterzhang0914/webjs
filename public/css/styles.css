@@ -1,5 +1,39 @@
-h1{
-    color: gray;
+body {
+    font-family: Arial;
+    color: #333333;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 15px;
+    background: deepskyblue;
+}
+
+footer {
+    width: 99%;
+    /*height: 130px; !* footer的高度一定要是固定值*!*/
+    /*bottom: 1px;*/
+    /*background: yellow;*/
+    /*padding: 3px;*/
+    color: #888888;
+    border-top: #eeeeee solid 1px;
+    margin-top: 16px;
+    padding:16px 0;
+}
+header a {
+    color: #888888;
+    margin-right: 10px;
+    text-decoration: none;
 }
 
 img {

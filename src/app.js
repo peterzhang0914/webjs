@@ -9,7 +9,7 @@ const app = express()
 app.set('view engine', 'hbs')
 app.set('views', conf.views_path)
 //公共组件注册通过hbs.registerPartials注册
-hbs.registerPartials(conf.widgets_path)
+hbs.registerPartials(conf.partial_path)
 
 // 2. 映射url到静态文件夹
 //映射 route 到 public 文件夹
@@ -34,8 +34,8 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('about',{
-        title:'About me title'
+    res.render('about', {
+        title: 'About me title'
     })
 })
 
@@ -45,6 +45,18 @@ app.get('/auth', (req, res) => {
 //example.com
 //example.com/auth
 //example.com/about
+
+//404
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        error: 'Help sub route not found'
+    })
+})
+app.get('*', (req, res) => {
+    res.render('404', {
+        error: 'page not found'
+    })
+})
 
 app.listen(3000, () => {
     console.log('Server is up on port : 3000.')

@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
     <link rel="stylesheet" href="/css/styles.css">
+    
+    {{!-- <!-- import Vue.js -->
+    <script src="//vuejs.org/js/vue.min.js"></script>
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="//unpkg.com/view-design/dist/styles/iview.css">
+    <!-- import iView -->
+    <script src="//unpkg.com/view-design/dist/iview.min.js"></script> --}}
 </head>
-<body>
-<div class="main">
-    {{>header}}
-    <h1> {{title}}</h1>
-    <h1> {{admin}}</h1>
-    <img src="/img/mountain.jpg">
-    <img src="/img/mountain.jpg">
-    <img src="/img/mountain.jpg">
 
-</div>
-{{>footer}}
+<body>
+    <div class="main">
+        {{>header}}
+        <form action="">
+            <input placeholder="Location" type="text" name="address">
+            <button>Search</button>
+        </form>
+        <p id="temp"></p>
+        <p id="loc"></p>
+        <p id='wind'></p>
+    </div>
+    {{>footer}}
+    <script src="/js/dynamic.js"></script>
 </body>
+
 </html>

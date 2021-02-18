@@ -57,7 +57,7 @@ app.get('/Weather', (req, res) => {
         return res.send(ret)
     }
 
-    getGeoCode(req.query.address, (err, {lon, lat, loc}={}) => {
+    getGeoCode(req.query.address, (err, {lon, lat, loc} = {}) => {
         if (err) {
             return res.send(responseOK(1, err, undefined))
         }
@@ -65,7 +65,7 @@ app.get('/Weather', (req, res) => {
             if (err) {
                 return res.send(responseOK(1, err, undefined))
             }
-            resp['loc']=loc
+            resp['loc'] = loc
             return res.send(responseOK(0, '', resp))
         })
     })
@@ -80,6 +80,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port : 3000.')
+app.listen(conf.port, () => {
+    console.log('Server is up on port : ' + conf.port)
 })

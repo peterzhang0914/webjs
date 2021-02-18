@@ -5,7 +5,6 @@ fetch('http://puzzle.mead.io/puzzle').then((res) => {
 })
 
 
-
 //选择dom
 const weatherForm = document.querySelector('form')
 const inputElement = document.querySelector('input')
@@ -26,11 +25,12 @@ weatherForm.addEventListener('submit', (e) => {
         tempElement.textContent = 'Loading...'
         locElement.textContent = ''
         windElement.textContent = ''
-        const requestURL = 'http://localhost:3000/weather?address=' + encodeURIComponent(address)
+        // 访问本机URL (http://localhost:3000/) 可以被缩写成 /
+        const requestURL = '/weather?address=' + encodeURIComponent(address)
         fetch(requestURL).then((res) => {
             res.json().then((res) => {
                 if (res.errno !== 0) {
-                    tempElement.textContent='Unable to load result, try again later. ' + res.msg
+                    tempElement.textContent = 'Unable to load result, try again later. ' + res.msg
                     console.log(res.msg)
                 } else {
                     console.log(res)
